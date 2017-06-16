@@ -1,4 +1,4 @@
-.PHONY: help clean clean-pyc clean-build list test test-all coverage docs release sdist
+.PHONY: help clean clean-pyc clean-build list test test-all coverage release sdist
 
 help:
 	@echo "clean-build - remove build artifacts"
@@ -7,7 +7,6 @@ help:
 	@echo "test - run tests quickly with the default Python"
 	@echo "test-all - run tests on every Python version with tox"
 	@echo "coverage - check code coverage quickly with the default Python"
-	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
 	@echo "sdist - package"
 
@@ -37,14 +36,6 @@ coverage:
 	coverage report -m
 	coverage html
 	open htmlcov/index.html
-
-docs:
-	rm -f docs/stowage.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ stowage
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-	open docs/_build/html/index.html
 
 release: clean
 	python setup.py sdist upload
