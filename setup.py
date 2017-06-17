@@ -35,6 +35,9 @@ setup(
     packages=[
         'stowage',
     ],
+    entry_points={
+        'console_scripts': ['stowage=stowage.stowage:main'],
+    },
     package_dir={'stowage': 'stowage'},
     include_package_data=True,
     install_requires=[

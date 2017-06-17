@@ -137,5 +137,8 @@ def main(args):
             if not args.dryrun:
                 do_symlink(source, destination)
 
-if __name__ == '__main__':
+def cli():
     main(parse_args(sys.argv))
+
+if __name__ == '__main__':
+    cli()

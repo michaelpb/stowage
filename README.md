@@ -9,11 +9,15 @@ Stow-like designed for keeping dotfiles under version control, written in python
 
 ## Installation
 
+Assuming Python's `pip` is installed (for Debian-based systems, this can be
+installed with `sudo apt-get install python-pip`), stowage can be installed
+directly from PyPI:
+
 ```
-sudo apt-get install python-pip3
-pip3 install stowage
+pip install stowage
 ```
 
+Python versions 3.3+ (and 2.6+) are supported and tested against.
 
 ## Quick start
 
@@ -71,4 +75,4 @@ optional arguments:
 
 # Contributing
 
-New features and bug fixes are welcome!
+New features, tests, and bug fixes are welcome!
