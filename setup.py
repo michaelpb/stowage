@@ -22,7 +22,6 @@ except ImportError:
     sys.exit(1)
 
 readme = pypandoc.convert('README.md', 'rst')
-print(readme)
 
 # doclink = """
 # Documentation
@@ -49,17 +48,14 @@ setup(
         'console_scripts': ['stowage=stowage.stowage:main'],
     },
     package_dir={'stowage': 'stowage'},
-    include_package_data=True,
-    install_requires=[
-    ],
+    install_requires=[],
     license='GPL3',
-    zip_safe=False,
     keywords='stowage',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
-        'Topic :: System',
+        "Environment :: Console",
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
