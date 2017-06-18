@@ -45,7 +45,7 @@ setup(
         'stowage',
     ],
     entry_points={
-        'console_scripts': ['stowage=stowage.stowage:main'],
+        'console_scripts': ['stowage=stowage.stowage:cli'],
     },
     package_dir={'stowage': 'stowage'},
     install_requires=[],
