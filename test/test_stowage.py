@@ -8,6 +8,7 @@ import tempfile
 
 from stowage import stowage
 
+
 class BlankEnvironBase:
     @classmethod
     def setup_class(cls):
@@ -32,6 +33,7 @@ class BlankEnvironBase:
         if cls.original_bup is not None:
             os.environ['STOWAGE_BACKUP'] = cls.original_bup
         stowage._is_verbose = False
+
 
 class TestParseArgs(BlankEnvironBase):
     def test_parse_args_default(self):
@@ -108,9 +110,11 @@ def write_tmp_file(path):
         pass
     open(path, 'w+').write('%s contents' % path)
 
+
 def gen_tmp_files(root, files):
     for fn in files:
         write_tmp_file(join(root, fn))
+
 
 def clear_tmp_files(root, files):
     for fn in files:
@@ -121,6 +125,7 @@ def clear_tmp_files(root, files):
             os.removedirs(os.path.dirname(path))
         except OSError:
             pass
+
 
 class TestPathGenerators:
     FILES = [
@@ -193,4 +198,3 @@ class TestFullBehavior:
         assert exists(join(self.out_dir, '.config', 'openbox', 'openbox.xml'))
         contents = open(join(self.out_dir, '.vimrc')).read()
         assert contents == '%s contents' % join(self.dir, 'vim', '_vimrc')
-

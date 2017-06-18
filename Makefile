@@ -1,4 +1,4 @@
-.PHONY: help clean clean-pyc clean-build list test test-all coverage release sdist
+.PHONY: help clean clean-pyc clean-build build list test test-all coverage release sdist
 
 help:
 	@echo "clean-build - remove build artifacts"
