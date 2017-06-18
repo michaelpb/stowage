@@ -34,7 +34,7 @@ history = ''
 
 setup(
     name='stowage',
-    version='0.1.5',
+    version='0.1.6',
     description='Stow-like application for keeping '
                 'your dot-files under version control',
     long_description=readme + '\n\n' + doclink + '\n\n' + history,
