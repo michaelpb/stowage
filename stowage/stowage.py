@@ -34,7 +34,10 @@ def parse_args(argv):
     parser.add_argument('-B', '--skip-backup', help='skip making backups',
                         action='store_true')
     parser.add_argument('packages', nargs='*', help='one or more packages')
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if sys.argv[0] in args.packages:
+        args.packages.remove(sys.argv[0])
+    return args
 
 
 def source_directories(args):
@@ -135,7 +138,7 @@ def main(args):
     try:
         check_args(args)
     except ArgError:
-        parser.print_help()
+        parser.print_usage()
         sys.exit(1)
 
     # Args are correct, lets now perform necessary steps
