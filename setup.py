@@ -22,6 +22,7 @@ except ImportError:
     sys.exit(1)
 
 readme = pypandoc.convert('README.md', 'rst')
+print(readme)
 
 # doclink = """
 # Documentation
@@ -55,8 +56,10 @@ setup(
     zip_safe=False,
     keywords='stowage',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
+        'Topic :: System',
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
