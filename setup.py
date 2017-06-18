@@ -13,7 +13,15 @@ if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
     sys.exit()
 
-readme = open('README.md').read()
+
+try:
+    import pypandoc
+except ImportError:
+    print('Cannot release without pypandoc installed. '
+          'Used to translate from Markdown to Re-Structured Text.')
+    sys.exit(1)
+
+readme = pypandoc.convert('README.md', 'rst')
 
 # doclink = """
 # Documentation
@@ -27,7 +35,8 @@ history = ''
 setup(
     name='stowage',
     version='0.1.3',
-    description='Stow-like designed for keeping dotfiles under version control, written in python',
+    description='Stow-like application for keeping '
+                'your dot-files under version control',
     long_description=readme + '\n\n' + doclink + '\n\n' + history,
     author='michaelb',
     author_email='michaelpb@gmail.com',
