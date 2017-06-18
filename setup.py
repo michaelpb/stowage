@@ -26,7 +26,7 @@ history = ''
 
 setup(
     name='stowage',
-    version='0.1.1',
+    version='0.1.2',
     description='Stow-like designed for keeping dotfiles under version control, written in python',
     long_description=readme + '\n\n' + doclink + '\n\n' + history,
     author='michaelb',
