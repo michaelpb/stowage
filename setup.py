@@ -13,20 +13,20 @@ if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
     sys.exit()
 
-readme = open('README.rst').read()
+readme = open('README.md').read()
 
 # doclink = """
 # Documentation
 # -------------
 #
 # The full documentation is at http://stowage.rtfd.org."""
-# history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+# history = open('HISTORY').read().replace('.. :changelog:', '')
 doclink = ''
 history = ''
 
 setup(
     name='stowage',
-    version='0.1.0',
+    version='0.1.1',
     description='Stow-like designed for keeping dotfiles under version control, written in python',
     long_description=readme + '\n\n' + doclink + '\n\n' + history,
     author='michaelb',
