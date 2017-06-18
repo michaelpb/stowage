@@ -103,7 +103,7 @@ def get_backup_path(args, destination):
     '''
     Given parsed args, generates the full backup path for the destination file
     '''
-    relpath = os.path.relpath(args.destination, destination).strip('./')
+    relpath = os.path.relpath(destination, args.destination).strip('/')
     fullpath = os.path.join(args.backup, relpath)
     backup_path = fullpath
     tries = 0

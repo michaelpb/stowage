@@ -190,11 +190,28 @@ class TestFullBehavior:
         args = stowage.parse_args([
             '--source', self.dir,
             '--destination', self.out_dir,
-            '--backup', join(self.dir, 'bup'),
+            '--backup', join(self.dir, 'path/to/bup'),
             'vim',
         ])
         stowage.main(args)
         assert exists(join(self.out_dir, '.vimrc'))
         assert exists(join(self.out_dir, '.config', 'openbox', 'openbox.xml'))
+        contents = open(join(self.out_dir, '.vimrc')).read()
+        assert contents == '%s contents' % join(self.dir, 'vim', '_vimrc')
+
+    def test_backup(self):
+        args = stowage.parse_args([
+            '--source', self.dir,
+            '--destination', self.out_dir,
+            '--backup', join(self.dir, 'path/to/bup'),
+            'vim',
+        ])
+        open(join(self.out_dir, '.vimrc'), 'w+').write('original')
+        stowage.main(args)
+        assert exists(join(self.out_dir, '.vimrc'))
+        assert exists(join(self.out_dir, '.config', 'openbox', 'openbox.xml'))
+        assert exists(join(self.dir, 'path', 'to', 'bup', '.vimrc'))
+        contents = open(join(self.dir, 'path', 'to', 'bup', '.vimrc')).read()
+        assert contents == 'original'
         contents = open(join(self.out_dir, '.vimrc')).read()
         assert contents == '%s contents' % join(self.dir, 'vim', '_vimrc')
