@@ -169,6 +169,7 @@ class TestPathGenerators:
             (join(self.dir, '_config/openbox/openbox.xml'),
                 join(self.dir, '.config/openbox/openbox.xml')),
         ])
+        os.remove(join(self.dir, '.vimrc'))
 
 
 class TestFullBehavior:
