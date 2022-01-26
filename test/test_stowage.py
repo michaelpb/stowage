@@ -149,12 +149,14 @@ class TestPathGenerators:
         clear_tmp_files(cls.dir, cls.FILES + ['.vimrc'])
 
     def test_directory_walk(self):
+        args = stowage.parse_args([])
         results = list(stowage.directory_walk(self.dir, 'test_out'))
         results_set = set(results)
         assert len(results_set) == len(results)  # ensure no dupes
         assert results_set == self.results
 
     def test_needed_symlink_walk(self):
+        args = stowage.parse_args([])
         results = list(stowage.needed_symlink_walk(self.dir, 'test_out'))
         results_set = set(results)
         assert len(results_set) == len(results)  # ensure no dupes
